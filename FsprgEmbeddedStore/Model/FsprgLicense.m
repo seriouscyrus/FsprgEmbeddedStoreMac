@@ -13,7 +13,8 @@
 
 + (FsprgLicense *)licenseWithDictionary:(NSDictionary *)aDictionary
 {
-	return [[[FsprgLicense alloc] initWithDictionary:aDictionary] autorelease];
+	//return [[[FsprgLicense alloc] initWithDictionary:aDictionary] autorelease];
+    return [[FsprgLicense alloc] initWithDictionary:aDictionary];
 }
 
 - (FsprgLicense *)initWithDictionary:(NSDictionary *)aDictionary
@@ -26,14 +27,16 @@
 }
 - (NSDictionary *)raw
 {
-    return [[raw retain] autorelease]; 
+    return raw;
+    //return [[raw retain] autorelease];
 }
 
 - (void)setRaw:(NSDictionary *)aDictionary
 {
     if (raw != aDictionary) {
-        [raw release];
-        raw = [aDictionary retain];
+        raw = aDictionary;
+//        [raw release];
+//        raw = [aDictionary retain];
     }
 }
 
@@ -78,11 +81,11 @@
 	return FALSE;
 }
 
-- (void)dealloc
-{
-    [self setRaw:nil];
-	
-    [super dealloc];
-}
+//- (void)dealloc
+//{
+//    [self setRaw:nil];
+//	
+//    //[super dealloc];
+//}
 
 @end

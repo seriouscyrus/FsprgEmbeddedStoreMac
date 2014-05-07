@@ -22,7 +22,9 @@
 													   errorDescription:&errorDesc];
 		
 	
-	return [[[FsprgOrder alloc] initWithDictionary:aDict] autorelease];
+	//return [[[FsprgOrder alloc] initWithDictionary:aDict] autorelease];
+    return [[FsprgOrder alloc] initWithDictionary:aDict];
+
 }
 
 - (FsprgOrder *)initWithDictionary:(NSDictionary *)aDictionary
@@ -35,13 +37,15 @@
 }									
 - (NSDictionary *)raw
 {
-    return [[raw retain] autorelease]; 
+    return raw;
+    //return [[raw retain] autorelease];
 }
 - (void)setRaw:(NSDictionary *)aDictionary
 {
     if (raw != aDictionary) {
-        [raw release];
-        raw = [aDictionary retain];
+        raw = aDictionary;
+//        [raw release];
+//        raw = [aDictionary retain];
     }
 }
 
@@ -125,7 +129,7 @@
 {
     [self setRaw:nil];
 	
-    [super dealloc];
+    //[super dealloc];
 }
 
 @end
